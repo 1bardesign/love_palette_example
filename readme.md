@@ -14,6 +14,10 @@ love .
 
 If you're on windows, dragging and dropping this folder onto love should work.
 
+You should see something like this:
+
+![Screenshot of the demo, showing a coloured image drawn with the palette shader, and a red image coloured strangely](https://user-images.githubusercontent.com/24538638/89523298-f9873a00-d825-11ea-934d-d31c4e382bc0.png)
+
 ## Contributing
 
 PRs welcome, but lets keep things straightforward.
