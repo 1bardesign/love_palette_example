@@ -6,7 +6,7 @@
 
 	note: not optimal, by any stretch of the imagination!
 		however, it does show the process of converting an image into
-		an efficient format 
+		an efficient format
 
 		possible improvements
 			- support 2d palettes
@@ -21,7 +21,7 @@ vec4 effect(vec4 c, Image t, vec2 uv, vec2 px) {
 	float idx = Texel(t, uv).r;
 	vec2 pal_uv = vec2(idx + (0.5 / palette_size), 0.5);
 	return Texel(palette, pal_uv);
-} 
+}
 ]])
 
 local function clamp01(v)
@@ -29,10 +29,10 @@ local function clamp01(v)
 end
 
 local function encode_rgb(r, g, b)
-	return 
-		math.floor(clamp01(r) * 255)
-		+ math.floor(clamp01(g) * 255) * 255
-		+ math.floor(clamp01(b) * 255) * 255 * 255
+	return
+		math.floor(clamp01(r) * 0xff)
+		+ math.floor(clamp01(g) * 0xff) * 0x100
+		+ math.floor(clamp01(b) * 0xff) * 0x10000
 end
 
 local palette_image = {}
@@ -51,7 +51,7 @@ function palette_image:new(rgb_image_data, rgb_palette_data)
 	--remap to indexed image data
 	indexed_id:mapPixel(function(x, y)
 		local i_rgb = encode_rgb(rgb_image_data:getPixel(x, y))
-		local i = col_to_pal[i_rgb] / (pw - 1)
+		local i = (col_to_pal[i_rgb] or 0) / (pw - 1)
 		return i, 0, 0, 1
 	end)
 	return setmetatable({
