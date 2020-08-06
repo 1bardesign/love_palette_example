@@ -1,8 +1,18 @@
 # 🎨 `love_palette_example`
 
-A basic example of paletised rendering in love2d, include palette swapping from pre-prepared palettes.
+A basic example of paletised rendering in love, include palette swapping from pre-prepared palettes.
 
 Lots, lots more is possible, but this should help you get off the ground if you're struggling. Enjoy!
+
+## Running
+
+Just run the folder like any other love project. If love is on your path, then something like this inside the folder should work:
+
+```sh
+love .
+```
+
+If you're on windows, dragging and dropping this folder onto love should work.
 
 ## Contributing
 
